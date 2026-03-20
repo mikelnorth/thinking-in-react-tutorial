@@ -1,5 +1,4 @@
-import { ProductCategoryRow } from "./ProductCategoryRow";
-import { ProductRow } from "./ProductRow";
+import { ProductRowWrapper } from "./ProductRowWrapper";
 
 const products = [
   { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -51,23 +50,5 @@ export function ProductTable({ searchText, isFilteredByInStock }) {
         )}
       </tbody>
     </table>
-  );
-}
-
-function ProductRowWrapper({ category, products }) {
-  return (
-    <>
-      <ProductCategoryRow category={category} />
-      {products?.map((product, index) => {
-        return (
-          <ProductRow
-            key={`${product.name}-${index}`}
-            name={product.name}
-            price={product.price}
-            isInStock={product.stocked}
-          />
-        );
-      })}
-    </>
   );
 }
